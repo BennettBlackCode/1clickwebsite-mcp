@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ai.1clickwebsite/mcp",
+  "title": "1ClickWebsite",
+  "description": "Build and edit WordPress websites for local service businesses and run Lead Gen demo-site batches.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.1clickwebsite.ai/docs/mcp",
+  "icons": [{ "src": "https://www.1clickwebsite.ai/app-icon.png", "mimeType": "image/png", "sizes": ["256x256"] }],
+  "remotes": [{ "type": "streamable-http", "url": "https://www.1clickwebsite.ai/api/mcp" }]
+}
