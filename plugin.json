@@ -1,0 +1,15 @@
+{
+  "name": "1clickwebsite",
+  "displayName": "1ClickWebsite",
+  "version": "1.0.0",
+  "agentPlugins": "1.0.0",
+  "description": "Build and edit WordPress websites for local service businesses, and run Lead Gen demo-site batches, from your AI agent.",
+  "author": { "name": "1ClickWebsite", "email": "contact@boldslate.com", "url": "https://www.1clickwebsite.ai" },
+  "homepage": "https://www.1clickwebsite.ai/docs/mcp",
+  "repository": "https://github.com/BennettBlackCode/1clickwebsite-mcp",
+  "license": "MIT",
+  "logo": "assets/logo-400.png",
+  "keywords": ["wordpress", "website-builder", "agencies", "lead-generation", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

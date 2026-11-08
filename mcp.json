@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "1clickwebsite": {
+      "type": "http",
+      "url": "https://www.1clickwebsite.ai/api/mcp",
+      "headers": { "Authorization": "Bearer ${ONECLICKWEBSITE_API_KEY}" }
+    }
+  }
+}
