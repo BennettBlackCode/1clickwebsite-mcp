@@ -1,0 +1,141 @@
+{
+  "identifier": "1clickwebsite",
+  "name": "1ClickWebsite",
+  "version": "1.0.0",
+  "author": "1ClickWebsite",
+  "authorUrl": "https://www.1clickwebsite.ai",
+  "description": "Build and edit WordPress websites for local service businesses, and run Lead Gen batches of personalized demo sites, from your AI agent. Official remote MCP server (OAuth or API key).",
+  "homepage": "https://www.1clickwebsite.ai/docs/mcp",
+  "cloudEndpoint": "https://www.1clickwebsite.ai/api/mcp",
+  "icon": "https://raw.githubusercontent.com/BennettBlackCode/1clickwebsite-mcp/main/assets/logo-400.png",
+  "tags": [
+    "wordpress",
+    "website-builder",
+    "web-design",
+    "agencies",
+    "lead-generation",
+    "seo",
+    "local-business"
+  ],
+  "tools": [
+    {
+      "name": "check_credits",
+      "description": "Credits left on the account: site credits (one per create_site) and Lead Gen credits (one per business in a batch, at least 5 per batch).",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "find_business",
+      "description": "Looks a business up on Google by name, so create_site can fill in its details. Add the city, phone or website to narrow it down. When confident is false, show the matches to the user and ask which one is theirs.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_templates",
+      "description": "The website designs a new site can use. Pass a template's templateId and themeId to create_site.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_site",
+      "description": "Builds a new website for a business and uses one site credit. Easiest: pass googlePlaceId from find_business and its name, address, phone, hours, website, category and services are filled in from Google; anything else you pass overrides them. When the business has no address on Google, also pass addressCity and addressRegion so its service areas can be filled in. Confirm the business and the credit with the user first. Building takes several minutes; follow it with site_status.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "site_status",
+      "description": "Where a site is in its build (progress, current step), and its link once ready.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_sites",
+      "description": "The account's websites, newest first, with their links and status. A complete site, or one moved to its own domain (status \"moved\"), can be edited with the site editing tools.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_lead_gen_templates",
+      "description": "The designs a Lead Gen batch can use; pass one's key as templateKey to create_lead_gen_batch.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "create_lead_gen_batch",
+      "description": "Builds a one-page demo website for each business in the list, to show prospects. Uses one Lead Gen credit per business (at least 5 per batch). Confirm the list and cost with the user first. Pages build in the background; follow them with get_lead_gen_batch.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "list_lead_gen_batches",
+      "description": "Recent Lead Gen batches with their status, and the Lead Gen credits left.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_lead_gen_batch",
+      "description": "A batch and each business in it, with its page link (public_url) once built. Item ids are what update_lead_gen_site takes.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "update_lead_gen_batch",
+      "description": "Changes a batch's default color, background or logo size. Pages using the default change at once; pages with their own setting keep it.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "update_lead_gen_site",
+      "description": "Changes one business's demo page: its name, contact details, logo, color, background or contact mode.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "export_lead_gen_batch",
+      "description": "The batch as CSV (business details and page links), e.g. for a mail merge or CRM import.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "site_guide",
+      "description": "Start here before editing a site: how it is built (OCF fields, collections, design tokens) and the rules for changing it.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_tools",
+      "description": "Lists the 1ClickWebsite tools in a group, with what each does and its inputs. Groups: sites (credits, templates, creating sites and following their builds), lead_gen (demo-site batches for prospect lists), editing (changing a finished site's content, pages, SEO, design and media; start with site_guide). Run a tool with run_read_tool or run_change_tool.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "run_read_tool",
+      "description": "Runs a tool from get_tools that only reads (run_with: run_read_tool), such as list_sites, site_status or site_guide.",
+      "inputSchema": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "run_change_tool",
+      "description": "Runs a tool from get_tools that makes changes (run_with: run_change_tool): creating sites or Lead Gen batches (uses credits), or editing a site. Confirm with the user first.",
+      "inputSchema": {
+        "type": "object"
+      }
+    }
+  ]
+}
